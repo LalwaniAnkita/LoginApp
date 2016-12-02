@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.ankita.loginapp.InformationActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textfirstName"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/editfname"
+                android:textStyle="bold"
+                android:hint="First Name"
+                android:inputType="text"
+                android:layout_height="40dp" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textlastName"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+           <EditText
+               android:layout_width="match_parent"
+               android:inputType="text"
+               android:id="@+id/editlname"
+               android:textStyle="bold"
+               android:hint="Last Name"
+               android:layout_height="40dp" />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textmobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/editmobile"
+                android:textStyle="bold"
+                android:inputType="phone"
+                 android:hint="Mobile No"
+                android:layout_height="40dp" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/referal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/editEmail"
+                android:textStyle="bold"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:layout_height="40dp" />
+    </android.support.design.widget.TextInputLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/textGender"
+        android:text="Gender:"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="#f7d304"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textGender"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <RadioButton android:id="@+id/radio_Male"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:textSize="15dp"
+            android:checked="true" />
+        <RadioButton android:id="@+id/radio_Female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp"
+            android:text="Female" />
+
+
+    </RadioGroup>
+</LinearLayout>
+<Button
+    android:layout_width="match_parent"
+    android:text="Submit"
+    android:textStyle="bold"
+    android:textSize="15dp"
+    android:id="@+id/btn_infomationSubmit"
+    android:background="@drawable/my_button"
+    android:layout_marginTop="15dp"
+    android:textAlignment="center"
+    android:layout_height="wrap_content" />
+
+</LinearLayout>

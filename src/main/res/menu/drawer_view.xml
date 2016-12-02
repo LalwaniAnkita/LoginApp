@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Add_more_biz_locations"
+            android:checked="false"
+            android:title="@string/more_location_string" />
+
+        <item
+            android:id="@+id/Personal_Details"
+            android:checked="false"
+            android:title="@string/personal_details_string" />
+
+        <item
+            android:id="@+id/Notification"
+            android:checked="false"
+            android:title="@string/notification_string" />
+
+        <item
+            android:id="@+id/Job_Post"
+            android:checked="false"
+            android:title="@string/job_post_string" />
+        <item
+            android:id="@+id/Pre_Approve_Candidates"
+            android:checked="false"
+            android:title="@string/pre_approve_string" />
+        <item
+            android:id="@+id/Setting"
+            android:checked="false"
+            android:title="@string/setting_string" />
+        <item
+            android:id="@+id/Sign_Out"
+            android:checked="false"
+            android:title="@string/sign_out_string" />
+
+    </group>
+</menu>

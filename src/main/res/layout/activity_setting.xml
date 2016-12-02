@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_setting"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ankita.loginapp.SettingActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Change Password"
+        android:id="@+id/textChangePassword"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        android:background="#ffffff"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Terms and Conditions"
+        android:id="@+id/textTermConditions"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        android:background="#ffffff"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Contact us"
+            android:id="@+id/textContactUs"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:background="#ffffff"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Call Support"
+            android:id="@+id/textCallSupport"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:background="#ffffff"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Share"
+            android:drawableTop="@drawable/ic_menu_share"
+            android:id="@+id/textShare"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:background="#ffffff"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Rate us"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/textRateus"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:background="#ffffff"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

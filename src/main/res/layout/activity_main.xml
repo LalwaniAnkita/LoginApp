@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#ccf9d41b"
+    tools:context="com.example.ankita.loginapp.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textSize="25sp"
+        android:textColor="#ccf9d41b"
+        android:background="#cc101010"
+        android:textAlignment="center"
+        android:id="@+id/textone"
+        android:layout_centerInParent="true"
+        android:text="WORK WHEN YOU WAIT" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/groupofpeople"
+        android:layout_below="@+id/textone"
+        android:layout_above="@+id/textsecond"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/textsecond"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:text="SET HOURLY AVAILABILITY"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/textthird"
+        android:textStyle="bold"
+        android:layout_below="@id/textsecond"
+        android:text="AND"
+        android:textSize="20sp"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/textfour"
+        android:textStyle="bold"
+        android:layout_below="@id/textthird"
+        android:layout_centerInParent="true"
+        android:text="LET WORK YOU FIND"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="130dp"
+        android:id="@+id/btnSignin"
+        android:text="Signin"
+        android:gravity="center"
+        style="@style/AlertDialog.AppCompat"
+        android:textAlignment="center"
+        android:textColor="#cc101010"
+        android:textSize="25sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/my_buttonsign"
+        android:layout_height="50dp" />
+    <Button
+        android:layout_width="130dp"
+        style="@style/AlertDialog.AppCompat"
+        android:id="@+id/btnSignup"
+        android:gravity="center"
+        android:text="Signup"
+        android:textColor="#cc101010"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/my_buttonsign"
+        android:layout_height="50dp" />
+</RelativeLayout>
