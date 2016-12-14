@@ -63,8 +63,7 @@
             android:id="@+id/layoutWeek"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@id/layoutView"
+            android:layout_above="@id/btnfinish"
             android:layout_margin="5dp"
             android:orientation="horizontal">
 
@@ -164,15 +163,14 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/btnSubmit"
-            style="@style/AlertDialog.AppCompat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/my_button"
-            android:text="Finish"
-            android:textAlignment="center"
-            android:layout_alignParentBottom="true"
-            android:textSize="17sp" />
+        android:layout_width="match_parent"
+        android:id="@+id/btnfinish"
+        android:background="@drawable/my_button"
+        android:text="Finish"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"/>
 
 
         <fragment
@@ -185,6 +183,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/layoutTime"
             tools:layout="@layout/activity_map"/>
+
 
     </RelativeLayout>
 

@@ -111,7 +111,7 @@ public class JobPostActivity extends AppCompatActivity {
     private ArrayList<DataObject> getDataSet() {
         ArrayList results = new ArrayList<DataObject>();
         for (int index = 0; index < 0; index++) {
-            DataObject obj = new DataObject(""+index,""+index+"months",""+index,""+index,""+index,"$"+index,""+index);
+            DataObject obj = new DataObject(""+index,""+"months"+index+"",""+index,""+index,""+index,"$"+index,""+index);
             results.add(index, obj);
         }
         return results;

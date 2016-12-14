@@ -82,13 +82,14 @@ public class NewJobPostActivity extends AppCompatActivity implements TextWatcher
         editJobExperience.addTextChangedListener(this);
 
         textJobdate = (TextView) findViewById(R.id.textjobStartDate);
+        textJobdate.setText("Date");
         textJobdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i(TAG, "onClick: ");
                 flag = false;
                 Calendar now = Calendar.getInstance();
-                DatePickerDialog dpd=DatePickerDialog.newInstance((DatePickerDialog.OnDateSetListener)NewJobPostActivity.this,
+                DatePickerDialog dpd=DatePickerDialog.newInstance(NewJobPostActivity.this,
                         now.get(Calendar.DAY_OF_MONTH),
                         now.get(Calendar.MONTH),
                         now.get(Calendar.YEAR));
@@ -232,7 +233,7 @@ public class NewJobPostActivity extends AppCompatActivity implements TextWatcher
         cal.set(Calendar.MONTH,monthOfYear);
         cal.set(Calendar.YEAR,year);
         Log.i(TAG, "onDateSet: DateFormat");
-        SimpleDateFormat format1 = new SimpleDateFormat("dd-mm-yy");
+        SimpleDateFormat format1 = new SimpleDateFormat("dd-mm-yyyy");
 
         String formatted = format1.format(cal.getTime());
         textJobdate.setText(formatted);
