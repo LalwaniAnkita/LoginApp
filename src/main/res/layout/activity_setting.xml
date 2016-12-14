@@ -17,32 +17,41 @@
         android:text="Change Password"
         android:id="@+id/textChangePassword"
         android:textStyle="bold"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:background="#ffffff"
-        android:textSize="20sp"
-        android:layout_height="wrap_content"/>
+        android:textSize="23sp"
+        android:layout_gravity="center"
+        android:drawableRight="@drawable/ic_action_trending_neutral"
+        android:layout_height="30dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:text="Terms and Conditions"
         android:id="@+id/textTermConditions"
         android:textStyle="bold"
-        android:layout_marginTop="25dp"
+        android:drawableRight="@drawable/ic_action_trending_neutral"
+        android:layout_marginTop="35dp"
         android:background="#ffffff"
-        android:textSize="20sp"
-        android:layout_height="wrap_content"/>
+        android:textSize="23sp"
+        android:layout_gravity="center"
+        android:layout_height="30dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="25dp"
+        android:background="#ffffff"
+        android:layout_height="100dp">
         <TextView
             android:layout_width="wrap_content"
             android:text="Contact us"
+            android:layout_weight="1"
             android:id="@+id/textContactUs"
             android:textStyle="bold"
             android:layout_marginTop="25dp"
             android:background="#ffffff"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:drawableTop="@drawable/content_mail"
             android:layout_height="wrap_content"/>
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +61,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="25dp"
             android:background="#ffffff"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:drawableTop="@drawable/communication_phone"
             android:layout_height="wrap_content"/>
         <TextView
             android:layout_width="wrap_content"
@@ -63,17 +75,22 @@
             android:layout_marginTop="25dp"
             android:layout_marginLeft="10dp"
             android:background="#ffffff"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:textAlignment="center"
             android:layout_height="wrap_content"/>
         <TextView
             android:layout_width="wrap_content"
             android:text="Rate us"
+            android:textAlignment="center"
+            android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:id="@+id/textRateus"
             android:textStyle="bold"
             android:layout_marginTop="25dp"
             android:background="#ffffff"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:drawableTop="@drawable/action_star"
             android:layout_height="wrap_content"/>
 
 

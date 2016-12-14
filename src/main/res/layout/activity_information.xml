@@ -85,6 +85,7 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_below="@+id/textGender"
+        android:id="@+id/rdogrp"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
         <RadioButton android:id="@+id/radio_Male"

@@ -5,10 +5,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/job"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -34,8 +35,17 @@
         <activity android:name=".businessActivity"/>
         <activity android:name=".BusinessLocationActivity"/>
         <activity android:name=".MapActivity"/>
-        <activity android:name=".Map2Activity"/>
         <activity android:name=".SettingActivity">
+            <action android:name="android.intent.EXTRA_EMAIL"/>
+            <action android:name="android.intent.action.SEND_MULTIPLE"/>
+            <action android:name="action.intent.action.CALL"/>
+            <action android:name="android.intent.action.SEARCH"/>
+        </activity>
+        <activity android:name=".ChangePassword">
+        </activity>
+        <activity android:name=".JobPostActivity">
+        </activity>
+        <activity android:name=".NewJobPostActivity">
         </activity>
     </application>
 

@@ -52,7 +52,7 @@ public class InformationActivity extends AppCompatActivity implements View.OnCli
         btn_submit = (Button) findViewById(R.id.btn_infomationSubmit);
         btn_submit.setOnClickListener(this);
 
-        rdogrp = (RadioGroup)findViewById(R.id.textGender);
+        rdogrp = (RadioGroup)findViewById(R.id.rdogrp);
         /*male = (RadioButton) findViewById(R.id.radio_Male);
         female = (RadioButton) findViewById(R.id.radio_Female);*/
 
@@ -68,6 +68,8 @@ public class InformationActivity extends AppCompatActivity implements View.OnCli
         {
             rdogrp.check(R.id.radio_Female);
         }
+
+
 
 
 

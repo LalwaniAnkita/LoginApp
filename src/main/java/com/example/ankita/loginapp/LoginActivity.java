@@ -106,11 +106,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String email= edit_Email.getText().toString();
         String password = edit_Password.getText().toString();
         String referal =  edit_Referal.getText().toString();
-        if(email.length()<4)
+        if(email.length()<6)
         {
             text_email.setError("Invalid Email");
         }
-        else if(password.length()<4)
+        else if(password.length()<6)
         {
             text_password.setError("Invalid password");
         }

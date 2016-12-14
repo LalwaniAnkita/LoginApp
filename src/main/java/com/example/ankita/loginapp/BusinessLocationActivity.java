@@ -58,7 +58,7 @@ public class BusinessLocationActivity extends AppCompatActivity implements View.
                 try
                 {
                     Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN).build(BusinessLocationActivity.this);
-                    startActivityForResult(intent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
+                    startActivityForResult(intent,PLACE_AUTOCOMPLETE_REQUEST_CODE);
                 }
                 catch (GooglePlayServicesRepairableException e) {
                     e.printStackTrace();

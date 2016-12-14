@@ -44,7 +44,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener,TimePickerDialog.OnTimeSetListener,View.OnClickListener {
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener,TimePickerDialog.OnTimeSetListener{
     public static final int REQUEST_CODE_ACTIVITY_TWO =100;
 
     MapFragment mMapFragment;
@@ -84,8 +84,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mContext=getApplicationContext();
 
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(10000);
-        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setInterval(10000000);
+        mLocationRequest.setFastestInterval(5000000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
@@ -162,11 +162,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,R.string.drawer_open,R.string.drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.drawer_open, R.string.drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -184,16 +186,30 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                         intent = new Intent(MapActivity.this,InformationActivity.class);
                         startActivityForResult(intent,REQUEST_CODE_ACTIVITY_TWO);
                         break;
+
+                    case R.id.Job_Post:
+                        intent= new Intent(MapActivity.this,JobPostActivity.class);
+                        startActivityForResult(intent,REQUEST_CODE_ACTIVITY_TWO);
+                        break;
+
+                    case R.id.Setting:
+                        intent= new Intent(MapActivity.this,SettingActivity.class);
+                        startActivityForResult(intent,REQUEST_CODE_ACTIVITY_TWO);
+                        break;
+
                     case R.id.Sign_Out:
                         intent= new Intent(MapActivity.this,MainActivity.class);
                         startActivityForResult(intent,REQUEST_CODE_ACTIVITY_TWO);
+                        break;
+
                         default:
                         break;
 
 
                 }
 
-                return false;
+
+               return false;
 
             }
         });
@@ -328,8 +344,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
-    @Override
-    public void onClick(View view) {
 
-    }
+
+
+
 }

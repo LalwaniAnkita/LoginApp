@@ -119,7 +119,7 @@ public class PreferanceManager
     public static void putMobile(Context mContext, String mobile) {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(MYPREFERENCE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(KEY_REFERAL, mobile);
+        editor.putString(KEYMOBILENO, mobile);
         editor.commit();
     }
     public static final String getGender(Context mContext)
