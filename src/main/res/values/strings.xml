@@ -15,5 +15,7 @@
     <string name="pre_approve_string">pre_approve</string>
     <string name="setting_string">setting</string>
     <string name="sign_out_string">sign_out</string>
+    <string name="Yes">yes</string>
+    <string name="No">no</string>
 
 </resources>

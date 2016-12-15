@@ -5,14 +5,26 @@
               android:background="?android:attr/selectableItemBackground"
               android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
     <TextView
         android:id="@+id/textLocationJob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingTop="1dp"
-        android:text="Large Text"
+        android:textSize="15dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_navigation_close"
+            android:layout_gravity="right"
+            android:id="@+id/imgbtn_delete"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/text_JobExperience"
@@ -52,25 +64,23 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
         <TextView
             android:id="@+id/text_Job_minwage"
-            android:layout_gravity="right"
-            android:layout_marginLeft="15sp"
             android:background="@color/colorAccent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="1dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
             android:text="Small Text"
+            android:gravity="right"
+            android:layout_marginLeft="164dp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
         <TextView
             android:id="@+id/text_Job_maxwage"
-            android:layout_width="wrap_content"
-            android:layout_gravity="right"
+            android:layout_width="match_parent"
+            android:layout_marginRight="0dp"
             android:layout_height="wrap_content"
             android:paddingBottom="1dp"
+            android:gravity="right"
             android:background="@color/colorAccent"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:text="Small Text"/>
     </LinearLayout>
     <Button
         android:id="@+id/btn_JobApplied"

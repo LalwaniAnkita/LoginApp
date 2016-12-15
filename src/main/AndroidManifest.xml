@@ -47,6 +47,8 @@
         </activity>
         <activity android:name=".NewJobPostActivity">
         </activity>
+        <activity android:name=".AvailableAccounts">
+        </activity>
     </application>
 
 </manifest>

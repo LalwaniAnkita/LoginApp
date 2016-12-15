@@ -40,7 +40,11 @@ public class NewJobPostActivity extends AppCompatActivity implements TextWatcher
     RadioGroup rdogrp_JobTime,rdogrp_JobDay;
     TextView textJobdate;
     Button btn_Jobsubmit;
-    public static final String[] JOBCATEGORY={"Accountant","Clerk","Lecturer","Assistant","Artisan","Cashier"};
+    public static final String[] JOBCATEGORY={"Accountant","Account Payable Clerk","Account Receivable Clerk","Admin","Assistant","Android Developer","Animator","Any","Art Director","Artisan","Assembler","Assistant Editor","Assistant Manager","Auto Mechanic","Baby Sitting","Barback","Bartender","Billing Clert","Billing Coordinator","Billing Specialist","Billman","Bookkeeper","Brand Manager","Busser","Camera Operator","Caregiver","Carpenter","Cashier","Chef","Chef de Partie","Cleaner","Communication Specialist","Community Manager","Construction Worker","Content Manager","Content Marketing Manager","Cashier","Cook","Cosmetologist","Costume Designer","Creative Designer","Custodian",
+            "Customer Service","Data Entry Clerk","Data Entry Operator","Database Administrator","Delivary Driver","Dental Assistant","Developer","Dietary","Digital Account Manager","Digital Editor","Digital media Specialist","Dishwasher","Editor","Electrician","Email Marketing Manager","Engineering","Event Coordinator","Event Manager","Event Planner","Executive assistant","Executive Chef","Executive Recruiter","Executive Secretary","Fashion Editor","Field Sales Reprentative","File Clerk","Flooring","Food Expenditor","Food Runner","Forklift Operator","Front Office Manager","General labor","Graphic Designer","Guest Relative manager","HandyMan","Head Chef","Health Unit Coordinator",
+            "Hospice Nurse","Hospitality manager","Host","Hotel Concierge","Hotel Manager","House Sitting","House Keeper","HR","HR Assistant","HR Coordinator","HR Manager","Inside Sales","Interior Deginer","IOS Developer","Janitor","Journalist","Junior Accountant","Junior Analyst","Lecturer","Leasing Consultant","Legal Assistant","Legal Secretary","Line Cook","Litigation Paralegal","Logistices Coordinator","Maid","Maintenance Technician","Maintenance Worker","Makeup Artist","Manager","Managing Editor","Market Research Analyst","Marketing Assistant","Marketing Consultant","Marketing Executive","Marketing Intern","Marketing Manager","Marketing Officer","marketing Specialist",
+            "Massage Therapist","Medical Assistant","Network Administrator","New Producer","Nurse","Nursing Supervisor","Occupational Therapist","Office Assistant","Office Admin","Office Clerk","Office Coordinator","Office Manager","Opration Manager","Order Picker","Painter","Party Host/Hostess","Pastry Chef","Payroll Clerk","payroll Specialist","Personal Assistant","Pet Sitting","Pharmacy Technician","Photo Editor","Photographer","Physical Theropist","Plumber","PR Executive","Prep Cook","Prep Person","Production Assistant","Project Coordinator","Promoter Template","Puchasing Agent","Receiving Clerk","Receptionist","Recruiter","Remodeling Homes","Restraurant Server","Retail Cashier",
+            "Retail Manager","Safety Officer","Safety Manager","Sales Admin","Sales Advisor","Sales Assisatant","Sales Consultant","Sales Coordinator","Sales Representative","Secretary","Security Guard","Senior Admin Assistant","Shipping Manager","Social Media Manager","Sound Engineering","Sous Chef","Spa Therapist"," Staff Writer","Staffing Coordinator","Team Leader","Telemarketer","telesales Represenatative","Test Job Category","Tester","Truck Driver","Tutor","UI Designer","Video Editor","Visual Merchandiser","Volunteer Coordinator","Wait Staff","Waiter","Warehouse","Warehouse Manager","Warehouse Manager","Warehouse Associate","Warehouse Worker","Web Designer","Web Editor","Worker"};
     boolean flag;
 
     @Override
@@ -90,9 +94,9 @@ public class NewJobPostActivity extends AppCompatActivity implements TextWatcher
                 flag = false;
                 Calendar now = Calendar.getInstance();
                 DatePickerDialog dpd=DatePickerDialog.newInstance(NewJobPostActivity.this,
-                        now.get(Calendar.DAY_OF_MONTH),
+                        now.get(Calendar.YEAR),
                         now.get(Calendar.MONTH),
-                        now.get(Calendar.YEAR));
+                        now.get(Calendar.DAY_OF_MONTH));
                 Log.i(TAG, "onClick: DatePicker Date display");
                 dpd.show(getFragmentManager(), "Date Picker");
                 Log.i(TAG, "onClick: Date picker Date Found");
@@ -229,9 +233,9 @@ public class NewJobPostActivity extends AppCompatActivity implements TextWatcher
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         Calendar cal=Calendar.getInstance();
         Log.i(TAG, "onDateSet: ");
-        cal.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-        cal.set(Calendar.MONTH,monthOfYear);
         cal.set(Calendar.YEAR,year);
+        cal.set(Calendar.MONTH,monthOfYear);
+        cal.set(Calendar.DAY_OF_MONTH,dayOfMonth);
         Log.i(TAG, "onDateSet: DateFormat");
         SimpleDateFormat format1 = new SimpleDateFormat("dd-mm-yyyy");
 

@@ -15,18 +15,27 @@
         android:id="@+id/activity_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.hourlybility.ddemo456.MapActivity">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/horizontal_recycler_view"
+            android:layout_above="@+id/map"
+            android:layout_width="match_parent"
+            android:scrollbars="horizontal"
+            android:layout_height="wrap_content"/>
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:layout_above="@+id/layoutTime"/>
 
         <LinearLayout
             android:id="@+id/layoutTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/layoutWeek"
-            android:layout_margin="5dp"
+            android:layout_margin="2dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -63,16 +72,17 @@
             android:id="@+id/layoutWeek"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/btnfinish"
-            android:layout_margin="5dp"
+            android:layout_above="@+id/btn_finish"
+            android:layout_margin="2dp"
             android:orientation="horizontal">
 
             <RadioGroup
                 android:id="@+id/radioGroup1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="1dp"
                 android:gravity="center"
+                android:background="#cc121111"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -162,27 +172,16 @@
             </RadioGroup>
 
         </LinearLayout>
+
         <Button
-        android:layout_width="match_parent"
-        android:id="@+id/btnfinish"
-        android:background="@drawable/my_button"
-        android:text="Finish"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content"/>
-
-
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.MapFragment"
+            android:id="@+id/btn_finish"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/layoutTime"
-            android:layout_alignLeft="@+id/layoutTime"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/layoutTime"
-            tools:layout="@layout/activity_map"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/my_button"
+            android:text="Finish"
+            android:textAlignment="center"
+            android:textSize="15sp"/>
 
 
     </RelativeLayout>

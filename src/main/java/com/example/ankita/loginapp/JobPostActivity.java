@@ -1,6 +1,8 @@
 package com.example.ankita.loginapp;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,8 @@ public class JobPostActivity extends AppCompatActivity {
     private MyRecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private static String TAG = "RecyclerViewActivity";
+    private ArrayList mSelectedItems;
+    MyClickListener myclickListner;
 
 
     @Override
@@ -36,11 +39,30 @@ public class JobPostActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Job Post");
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        myclickListner = new MyClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                switch (v.getId()) {
+                    case R.id.btn_JobApplied: {
+                        Log.i(TAG, "onItemClick: ");
+                        break;
+                    }
+
+                    case R.id.imgbtn_delete: {
+                        Log.i(TAG, "onItemClick: delete before");
+                        mAdapter.deleteItem(position);
+                        Log.i(TAG, "onItemClick: delete after");
+                        break;
+                    }
+                }
+            }
+        };
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MyRecyclerViewAdapter(getDataSet());
+        mAdapter = new MyRecyclerViewAdapter(getDataSet(), myclickListner);
         mRecyclerView.setAdapter(mAdapter);
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
         mRecyclerView.addItemDecoration(itemDecoration);
@@ -59,6 +81,7 @@ public class JobPostActivity extends AppCompatActivity {
         });
 
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -82,13 +105,14 @@ public class JobPostActivity extends AppCompatActivity {
 
                     Log.i(TAG, "onActivityResult: location");
 
-                    DataObject ObjDataObject = new DataObject(location, post,experience,time,date,minwage,maxwage);
+                    final DataObject ObjDataObject = new DataObject(location, post, experience, time, date, minwage, maxwage);
                     Log.i(TAG, "onActivityResult: dataobj");
+
                     mAdapter.addItem(ObjDataObject, mAdapter.getItemCount());
                     Log.i(TAG, "onActivityResult: additem");
-                }
-                else
-                {
+
+                } else {
+
                     Log.i(TAG, "onActivityResult: data null");
                 }
 
@@ -100,20 +124,16 @@ public class JobPostActivity extends AppCompatActivity {
 
     protected void onResume() {
         super.onResume();
-        ((MyRecyclerViewAdapter) mAdapter).setOnItemClickListener(new MyRecyclerViewAdapter.MyClickListener() {
-            @Override
-            public void onItemClick(int position, View v) {
-                Log.i(TAG, "onItemClick:" + position);
-            }
-        });
+
     }
 
     private ArrayList<DataObject> getDataSet() {
         ArrayList results = new ArrayList<DataObject>();
         for (int index = 0; index < 0; index++) {
-            DataObject obj = new DataObject(""+index,""+"months"+index+"",""+index,""+index,""+index,"$"+index,""+index);
+            DataObject obj = new DataObject("" + index, "" + index + "", "" + index, "" + index, "" + index, "" + index, "" + index);
             results.add(index, obj);
         }
         return results;
     }
+
 }

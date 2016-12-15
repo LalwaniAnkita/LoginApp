@@ -3,18 +3,18 @@ package com.example.ankita.loginapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -57,6 +57,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private LocationRequest mLocationRequest;
     Context mContext;
 
+    private RecyclerView horizontal_recycler_view;
+    private MyHorizontalRecyclerViewRecyclerView mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList horizontalList;
+    MyClickListener myclickListner;
+
     private DrawerLayout drawer;
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mDrawerTitle;
@@ -66,11 +72,18 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     private RadioGroup radioGroup;
     TextView textStartTime, textTimeTo, textEndTime;
-    Button btn_Mapsubmit;
+    Button btn_finish;
 
     Marker mMarker;
     ArrayList<Marker> markers = new ArrayList<Marker>();
     boolean flag;
+
+    public static final String[] JOBCATEGORY={"Accountant","Account Payable Clerk","Account Receivable Clerk","Admin","Assistant","Android Developer","Animator","Any","Art Director","Artisan","Assembler","Assistant Editor","Assistant Manager","Auto Mechanic","Baby Sitting","Barback","Bartender","Billing Clert","Billing Coordinator","Billing Specialist","Billman","Bookkeeper","Brand Manager","Busser","Camera Operator","Caregiver","Carpenter","Cashier","Chef","Chef de Partie","Cleaner","Communication Specialist","Community Manager","Construction Worker","Content Manager","Content Marketing Manager","Cashier","Cook","Cosmetologist","Costume Designer","Creative Designer","Custodian",
+            "Customer Service","Data Entry Clerk","Data Entry Operator","Database Administrator","Delivary Driver","Dental Assistant","Developer","Dietary","Digital Account Manager","Digital Editor","Digital media Specialist","Dishwasher","Editor","Electrician","Email Marketing Manager","Engineering","Event Coordinator","Event Manager","Event Planner","Executive assistant","Executive Chef","Executive Recruiter","Executive Secretary","Fashion Editor","Field Sales Reprentative","File Clerk","Flooring","Food Expenditor","Food Runner","Forklift Operator","Front Office Manager","General labor","Graphic Designer","Guest Relative manager","HandyMan","Head Chef","Health Unit Coordinator",
+            "Hospice Nurse","Hospitality manager","Host","Hotel Concierge","Hotel Manager","House Sitting","House Keeper","HR","HR Assistant","HR Coordinator","HR Manager","Inside Sales","Interior Deginer","IOS Developer","Janitor","Journalist","Junior Accountant","Junior Analyst","Lecturer","Leasing Consultant","Legal Assistant","Legal Secretary","Line Cook","Litigation Paralegal","Logistices Coordinator","Maid","Maintenance Technician","Maintenance Worker","Makeup Artist","Manager","Managing Editor","Market Research Analyst","Marketing Assistant","Marketing Consultant","Marketing Executive","Marketing Intern","Marketing Manager","Marketing Officer","marketing Specialist",
+            "Massage Therapist","Medical Assistant","Network Administrator","New Producer","Nurse","Nursing Supervisor","Occupational Therapist","Office Assistant","Office Admin","Office Clerk","Office Coordinator","Office Manager","Opration Manager","Order Picker","Painter","Party Host/Hostess","Pastry Chef","Payroll Clerk","payroll Specialist","Personal Assistant","Pet Sitting","Pharmacy Technician","Photo Editor","Photographer","Physical Theropist","Plumber","PR Executive","Prep Cook","Prep Person","Production Assistant","Project Coordinator","Promoter Template","Puchasing Agent","Receiving Clerk","Receptionist","Recruiter","Remodeling Homes","Restraurant Server","Retail Cashier",
+            "Retail Manager","Safety Officer","Safety Manager","Sales Admin","Sales Advisor","Sales Assisatant","Sales Consultant","Sales Coordinator","Sales Representative","Secretary","Security Guard","Senior Admin Assistant","Shipping Manager","Social Media Manager","Sound Engineering","Sous Chef","Spa Therapist"," Staff Writer","Staffing Coordinator","Team Leader","Telemarketer","telesales Represenatative","Test Job Category","Tester","Truck Driver","Tutor","UI Designer","Video Editor","Visual Merchandiser","Volunteer Coordinator","Wait Staff","Waiter","Warehouse","Warehouse Manager","Warehouse Manager","Warehouse Associate","Warehouse Worker","Web Designer","Web Editor","Worker"};
+
 
 
     @Override
@@ -87,6 +100,43 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mLocationRequest.setInterval(10000000);
         mLocationRequest.setFastestInterval(5000000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        myclickListner= new MyClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Log.i(TAG, "onItemClick: ");
+                switch (v.getId())
+                {
+                    case R.id.btnArraylist:
+                    {
+                        Toast.makeText(MapActivity.this, "ID" + mAdapter.getItemId(position), Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            }
+        };
+
+        horizontal_recycler_view= (RecyclerView) findViewById(R.id.horizontal_recycler_view);
+
+        horizontalList= new ArrayList<String>();
+        horizontalList.add("Accountant");
+        horizontalList.add("Clerk");
+        horizontalList.add("Lecturer");
+        horizontalList.add("Assistant");
+        horizontalList.add("Artisan");
+        horizontalList.add("Cashier");
+        horizontalList.add("Developer");
+        horizontalList.add("worker");
+        horizontalList.add("Electrician");
+        horizontalList.add("Plumber");
+
+        horizontal_recycler_view.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        horizontal_recycler_view.setLayoutManager(mLayoutManager);
+        mAdapter = new MyHorizontalRecyclerViewRecyclerView(horizontalList,myclickListner);
+        horizontal_recycler_view.setAdapter(mAdapter);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
+        horizontal_recycler_view.addItemDecoration(itemDecoration);
 
         mMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
@@ -152,9 +202,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                         break;
                     default:
                         break;
-
-
                 }
+            }
+        });
+        btn_finish=(Button)findViewById(R.id.btn_finish);
+        btn_finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                    Intent intent = new Intent(MapActivity.this, AvailableAccounts.class);
+                    startActivity(intent);
 
             }
         });
@@ -231,6 +288,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onStop();
     }
 
+    public MapActivity()
+    {
+
+    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap=googleMap;
